@@ -19,7 +19,8 @@ from django.contrib import admin
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','bloger.views.home'),
-    url(r'^(?P<my_args>\d+)/$','bloger.views.details', name = 'details'),
     url(r'^test/$', 'bloger.views.test'),
+    url(r'^$','bloger.views.home', name='home'),
+    # url(r'^(?P<my_args>\d+)/$','bloger.views.details', name = 'details'),
+    url(r'^(?P<id>\d+)/$', 'bloger.views.details', name='detail'),
 ]
