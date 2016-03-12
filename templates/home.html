@@ -19,6 +19,7 @@
                 </div>
                 <a class="pure-button" href="{% url "detail" id=post.id %}">Read More >>> </a>
         </section>
+        {% include "duoshuo.html" %}
     {% endfor %}
 </div><!-- /.blog-post -->
 {% endblock %}
