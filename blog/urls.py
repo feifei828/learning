@@ -23,4 +23,8 @@ urlpatterns = [
     url(r'^$','bloger.views.home', name='home'),
     # url(r'^(?P<my_args>\d+)/$','bloger.views.details', name = 'details'),
     url(r'^(?P<id>\d+)/$', 'bloger.views.detail', name='detail'),
+    url(r'^archives/$', 'bloger.views.archives', name='archives'),
+    url(r'^about_me/$', 'bloger.views.about_me', name='about_me'),
+    url(r'^tag(?P<tag>\w+)/$', 'bloger.views.search_tag', name='search_tag'),
+    url(r'^search/$', 'bloger.views.blog_search', name='search'),
 ]

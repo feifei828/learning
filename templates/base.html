@@ -24,20 +24,25 @@
                     <li class="nav-item">
                         <a class="button-success pure-button" href="/">Home</a>
                     </li>
+                    <br/>
                     <li class="nav-item">
-                        <a class="button-success pure-button" href="/">Archive</a>
+                        <a class="button-success pure-button" href="{% url "archives" %}">Archive</a>
                     </li>
+                    <br/>
+                    <!--
                     <li class="nav-item">
                         <a class="pure-button" href="https://github.com/feifei828">Github</a>
                     </li>
                     <li class="nav-item">
                         <a class="button-error pure-button" href="http://weibo.com/feifeichen828">Weibo</a>
                     </li>
+                    -->
                     <li class="nav-item">
                         <a class="button-success pure-button" href="/">Pages</a>
                     </li>
+                    <br/>
                     <li class="nav-item">
-                        <a class="button-success pure-button" href="/">About Me</a>
+                        <a class="button-success pure-button" href="{% url "about_me" %}">About Me</a>
                     </li>
                 </ul>
             </nav>
@@ -47,12 +52,15 @@
 
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
+            <form class="pure-form" action="/search/" method="get">
+                <input class="pure-input-3-3" type="text" name="s" placeholder="search">
+            </form>
             {% block content %}
             {% endblock %}
             <div class="footer">
                 <div class="pure-menu pure-menu-horizontal pure-menu-open">
                     <ul>
-                        <li><a href="https://github.com/feifei828">About Me</a></li>
+                        <li><a href="{% url "about_me" %}">About Me</a></li>
                         <li><a href="http://weibo.com/feifeichen828/">WeiBo</a></li>
                         <li><a href="https://github.com/feifei828">GitHub</a></li>
                     </ul>
