@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from bloger.models import Article
 from datetime import datetime
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 # Create your views here.
 
@@ -25,8 +27,18 @@ def test(request):
 
 
 def home(request):
-    post_list = Article.objects.all() #获取Article全部对象
-    return render(request, 'home.html', {'post_list': post_list})
+    # post_list = Article.objects.all() #获取Article全部对象
+    # return render(request, 'home.html', {'post_list': post_list})
+    posts = Article.objects.all()  #获取全部的Article对象
+    paginator = Paginator(posts, 2) #每页显示两个
+    page = request.GET.get('page')
+    try :
+        post_list = paginator.page(page)
+    except PageNotAnInteger :
+        post_list = paginator.page(1)
+    except EmptyPage :
+        post_list = paginator.paginator(paginator.num_pages)
+    return render(request, 'home.html', {'post_list' : post_list})
 
 
 def detail(request, id):
@@ -69,3 +81,4 @@ def blog_search(request):
             else:
                 return render(request, 'archives.html', {'post_list': post_list, 'error': False})
     return redirect('/')
+
