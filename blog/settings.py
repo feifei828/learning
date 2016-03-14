@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """
 Django settings for blog project.
 
@@ -84,6 +85,19 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # 设置为mysql数据库
+#         'NAME': 'blog',
+#         'USER': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         'OPTIONS': {
+#             "init_command": "SET foreign_key_checks = 0;",
+#             "charset": "utf8mb4",  # 为了支持emoji表情
+#         },
+#     },
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
